@@ -79,139 +79,398 @@ header {
     background: var(--peach);
     transform: translateX(2px);
 }
-                                 /*HERO*/
+/* ========================= HERO ========================= */
+
 .hero {
-    min-height: 90vh;
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    padding: 80px 7%;
-    background: var(--cream);
+    gap: 70px;
+    padding: 90px 7%;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 25%, rgba(242, 180, 155, 0.22), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(242, 180, 155, 0.12), transparent 25%),
+        var(--cream);
 }
+/* Decorative background glow */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(242, 180, 155, 0.10);
+    filter: blur(10px);
+    top: -180px;
+    right: -120px;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(120, 82, 70, 0.12);
+    border-radius: 50%;
+    bottom: -80px;
+    left: 4%;
+    pointer-events: none;
+}
+/* ========================= CONTENT ========================= */
+
 .hero-content {
-    max-width: 650px;
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
 }
+
 .welcome {
-    display: inline-block;
-    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
     color: var(--peach);
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
+
+.welcome::before {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: var(--peach);
+    border-radius: 10px;
+}
+
 .hero h1 {
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1.05;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 0.98;
+    letter-spacing: -2px;
     color: var(--dark-brown);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
+
 .hero h1 span {
     color: var(--peach);
+    position: relative;
+    display: inline-block;
 }
+
+.hero h1 span::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 90%;
+    left: 5%;
+    bottom: -2px;
+    border-radius: 50%;
+    background: rgba(242, 180, 155, 0.45);
+    transform: rotate(-2deg);
+}
+
 .hero h2 {
-    font-size: 25px;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
     color: var(--brown);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
+
+.hero-role {
+    color: var(--peach);
+    margin: 0 5px;
+}
+
 .hero-description {
     max-width: 570px;
     color: var(--muted);
     font-size: 17px;
-    margin-bottom: 32px;
+    line-height: 1.8;
+    margin-bottom: 34px;
 }
+/* ========================= BUTTONS ========================= */
+
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    gap: 14px;
     flex-wrap: wrap;
 }
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 27px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
 .primary-button {
-    display: inline-block;
-    padding: 13px 25px;
     background: var(--dark-brown);
     color: white;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(59, 41, 36, 0.16);
 }
+
 .primary-button:hover {
     background: var(--peach);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(242, 180, 155, 0.35);
 }
+
 .secondary-button {
-    display: inline-block;
-    padding: 12px 25px;
-    border: 1px solid var(--brown);
+    border: 1px solid rgba(120, 82, 70, 0.35);
     color: var(--brown);
-    border-radius: 30px;
-    font-weight: 600;
-    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.35);
 }
+
 .secondary-button:hover {
     background: var(--light-peach);
+    border-color: var(--peach);
+    transform: translateY(-4px);
 }
+/* ========================= DETAILS ========================= */
+
 .hero-details {
     display: flex;
     gap: 45px;
-    margin-top: 55px;
+    margin-top: 58px;
 }
+
 .hero-details div {
     display: flex;
     flex-direction: column;
+    gap: 4px;
+    position: relative;
 }
+
+.hero-details div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 35px;
+    background: var(--border);
+    right: -23px;
+    top: 5px;
+}
+
 .hero-details strong {
     color: var(--dark-brown);
-    font-size: 20px;
+    font-size: 21px;
 }
+
 .hero-details span {
     color: var(--muted);
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
-/*=================================HERO VISUAL===========================*/
+/* ========================= HERO VISUAL ========================= */
+
 .hero-visual {
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 410px;
+    height: 410px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
+
+
+/* Main circle */
+
 .circle {
     position: absolute;
-    width: 320px;
-    height: 320px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    background: var(--light-peach);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(242, 180, 155, 0.65),
+            rgba(242, 180, 155, 0.18)
+        );
+    box-shadow:
+        inset 0 0 50px rgba(255, 255, 255, 0.5),
+        0 30px 80px rgba(120, 82, 70, 0.10);
+    animation: floatCircle 6s ease-in-out infinite;
 }
+
+/* Decorative ring */
+
+.circle::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    border: 1px dashed rgba(120, 82, 70, 0.22);
+    border-radius: 50%;
+}
+
+
+/* Profile card */
+
 .profile-card {
     position: relative;
-    width: 250px;
-    padding: 45px 30px;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
+    width: 270px;
+    padding: 48px 30px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
     text-align: center;
-    box-shadow: 0 25px 60px rgba(59, 41, 36, 0.12);
+    box-shadow:
+        0 30px 70px rgba(59, 41, 36, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    animation: floatingCard 5s ease-in-out infinite;
 }
+/* Code icon */
+
 .profile-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: var(--light-peach);
-    font-size: 22px;
+    border-radius: 22px;
+    background: var(--dark-brown);
+    color: white;
+    font-size: 24px;
     font-weight: bold;
+    box-shadow: 0 12px 25px rgba(59, 41, 36, 0.20);
+    transform: rotate(-4deg);
 }
+
+
+/* Card text */
+
 .profile-card h3 {
     color: var(--dark-brown);
-    margin-bottom: 8px;
+    font-size: 21px;
+    margin-bottom: 9px;
 }
+
 .profile-card p {
     color: var(--muted);
     font-size: 14px;
+    line-height: 1.6;
+}
+/* ========================= ANIMATIONS ========================= */
+
+@keyframes floatingCard {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+}
+
+@keyframes floatCircle {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+/* ========================= MOBILE ========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 6%;
+        gap: 70px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .welcome {
+        justify-content: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-details {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        width: 340px;
+        height: 340px;
+    }
+
+    .circle {
+        width: 290px;
+        height: 290px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .hero {
+        padding: 65px 5%;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-details {
+        gap: 25px;
+    }
+
+    .hero-details div:not(:last-child)::after {
+        right: -13px;
+    }
+
+    .hero-visual {
+        width: 300px;
+        height: 300px;
+    }
+
+    .circle {
+        width: 255px;
+        height: 255px;
+    }
+
+    .profile-card {
+        width: 230px;
+        padding: 38px 22px;
+    }
 }
 /*================================COMMON SECTION============================*/
 .about-section {
