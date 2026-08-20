@@ -36,48 +36,99 @@ header {
     top: 0;
     z-index: 1000;
 }
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 7%;
-    background: rgba(255, 249, 245, 0.95);
-    border-bottom: 1px solid var(--border);
+    padding: 17px 7%;
+    background: rgba(255, 249, 245, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(120, 82, 70, 0.10);
+    box-shadow: 0 5px 25px rgba(59, 41, 36, 0.04);
 }
+/* ========================= LOGO ========================= */
+
 .logo {
-    font-size: 28px;
+    position: relative;
+    font-size: 25px;
     font-weight: 800;
+    letter-spacing: -0.5px;
     color: var(--dark-brown);
+    transition: 0.3s ease;
 }
+
 .logo span {
     color: var(--peach);
+    font-size: 30px;
 }
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+/* ========================= NAV LINKS ========================= */
+
 .nav-links {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 34px;
     list-style: none;
 }
+
 .nav-links a {
+    position: relative;
     color: var(--text);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    transition: 0.3s;
+    padding: 7px 0;
+    transition: color 0.3s ease;
 }
+
+
+/* Animated underline */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: 0;
+    border-radius: 10px;
+    background: var(--peach);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
 .nav-links a:hover {
     color: var(--peach);
 }
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* ========================= CTA BUTTON ========================= */
+
 .nav-button {
-    padding: 11px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 23px;
     background: var(--dark-brown);
     color: white;
-    border-radius: 30px;
-    font-size: 14px;
+    border-radius: 50px;
+    font-size: 13px;
     font-weight: 600;
-    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(59, 41, 36, 0.12);
+    transition: all 0.3s ease;
 }
+
 .nav-button:hover {
     background: var(--peach);
-    transform: translateX(2px);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(242, 180, 155, 0.30);
 }
 /* ========================= HERO ========================= */
 
