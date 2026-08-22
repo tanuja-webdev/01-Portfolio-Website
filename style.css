@@ -130,6 +130,67 @@ header {
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(242, 180, 155, 0.30);
 }
+/* ========================= NAVBAR RESPONSIVE ========================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 15px 6%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo span {
+        font-size: 25px;
+    }
+
+    .nav-button {
+        padding: 9px 17px;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        padding: 14px 5%;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+}
 /* ========================= HERO ========================= */
 
 .hero {
