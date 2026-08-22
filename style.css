@@ -915,25 +915,49 @@ header {
 }
 .project-card {
     overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 24px;
     background: var(--cream);
-    transition: 0.3s;
+    transition: all 0.4s ease;
 }
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    border-color: rgba(242, 180, 155, 0.55);
     box-shadow: 0 20px 40px rgba(59, 41, 36, 0.10);
 }
 .project-image {
-    height: 220px;
+    height: 230px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     background: var(--light-peach);
     color: var(--brown);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
+}
+.project-image::after {
+    content: "VIEW PROJECT";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 41, 36, 0.72);
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-image::after {
+    opacity: 1;
 }
 .project-image img {
     width: 100%;
