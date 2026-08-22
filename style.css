@@ -1273,12 +1273,43 @@ header {
         padding: 28px;
     }
 }
-/*==========FOOTER==========*/
+/* ========================= FOOTER ========================= */
+
 footer {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 25px 7%;
+    gap: 20px;
+    padding: 24px 7%;
     background: var(--dark-brown);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     color: #D7C7C1;
     font-size: 13px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer p:first-child {
+    color: white;
+    font-weight: 600;
+}
+
+footer p:last-child {
+    color: #BFAFA9;
+    font-size: 12px;
+}
+
+
+/* ========================= FOOTER RESPONSIVE ========================= */
+
+@media (max-width: 600px) {
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px 7%;
+        gap: 8px;
+    }
 }
