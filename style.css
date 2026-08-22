@@ -1153,26 +1153,40 @@ header {
 }
 /*==========CONTACT==========*/
 #contact {
-    background: var(--light-peach);
+    background: radial-gradient(circle at 90% 15%,rgba(255, 255, 255, 0.55),transparent 28%), var(--light-peach);
+    position: relative;
+    overflow: hidden;
 }
 .contact-container {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 70px;
     align-items: center;
 }
 .contact-small {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: var(--brown);
     font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+}
+.contact-small::before {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: var(--peach);
+    border-radius: 10px;
 }
 .contact-content h2 {
+    max-width: 700px;
     color: var(--dark-brown);
-    font-size: clamp(35px, 5vw, 55px);
-    line-height: 1.1;
-    margin-bottom: 20px;
+    font-size: clamp(35px, 5vw, 62px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
 }
 .contact-content h2 span {
     color: var(--peach);
@@ -1180,28 +1194,84 @@ header {
 .contact-content > p {
     color: var(--muted);
     max-width: 550px;
-    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 32px;
 }
 .contact-box {
     padding: 35px;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(59, 41, 36, 0.10);
+    position: relative;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    box-shadow: 0 25px 55px rgba(59, 41, 36, 0.12);
+}
+.contact-box::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(242, 180, 155, 0.20);
+    top: -25px;
+    right: -20px;
+    z-index: -1;
 }
 .contact-box p {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     margin-top: 15px;
+    margin-bottom: 6px;
 }
 .contact-box p:first-child {
     margin-top: 0;
 }
 .contact-box a {
+    display: inline-block;
     color: var(--dark-brown);
+    font-size: 15px;
     font-weight: 600;
+    transition: all 0.3s ease;
 }
 .contact-box a:hover {
     color: var(--peach);
+    transform: translateX(3px);
+}
+@media (max-width: 850px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contact-content {
+        text-align: center;
+    }
+
+    .contact-small {
+        justify-content: center;
+    }
+
+    .contact-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .contact-content h2 {
+        font-size: 39px;
+    }
+
+    .contact-box {
+        padding: 28px;
+    }
 }
 /*==========FOOTER==========*/
 footer {
@@ -1211,67 +1281,4 @@ footer {
     background: var(--dark-brown);
     color: #D7C7C1;
     font-size: 13px;
-}
-/*==========RESPONSIVE DESIGN==========*/
-@media (max-width: 1000px) {
-    .nav-links {
-        gap: 15px;
-    }
-    .skill-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .project-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-}
-@media (max-width: 750px) {
-    .navbar {
-        padding: 18px 5%;
-    }
-    .nav-links {
-        display: none;
-    }
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 70px 5%;
-    }
-    .hero-content {
-        max-width: 100%;
-    }
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .hero-details {
-        justify-content: center;
-    }
-    .hero-visual {
-        width: 300px;
-        height: 300px;
-    }
-    .circle {
-        width: 250px;
-        height: 250px;
-    }
-    .section {
-        padding: 80px 5%;
-    }
-    .skill-grid, .project-grid, .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .about-info {
-        grid-template-columns: 1fr;
-    }
-    footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
 }
